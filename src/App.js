@@ -1,24 +1,30 @@
-import logo from './logo.svg';
 import './App.css';
+import HomeScreen from './Home/HomeScreen';
+import Prediction from './Prediction/Prediction';
+import Accumalator from './Accumalator/Accumalator';
+import Contact from './ContactUS/Contact';
+import PrivacyPolicy from './Privacy and Terms/PrivacyPolicy';
+import TermsCondition from './Privacy and Terms/Terms&Condition';
+import Navbar from './Navbar/Navbar';
+import Footer from './Footer/Footer';
 
+import { BrowserRouter, Routes,Route } from 'react-router-dom';
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <BrowserRouter>
+     <Navbar />
+      <Routes>
+      
+         <Route path='/' element={<HomeScreen/>} />
+         <Route path='/prediction' element={<Prediction/>}/>
+         <Route path='/accumalator' element={<Accumalator/>}/>
+         <Route path='/contactus' element={<Contact/>}/>
+         <Route path='/privacy' element={<PrivacyPolicy/>} />
+         <Route path='/terms' element={<TermsCondition/>} />
+
+      </Routes>
+      <Footer/>
+    </BrowserRouter>
   );
 }
 
